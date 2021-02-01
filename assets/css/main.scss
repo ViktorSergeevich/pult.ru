@@ -1,0 +1,212 @@
+/* Указываем box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* Убираем внешние отступы */
+body, h1, h2, h3, h4, p{
+  margin: 0;
+}
+a {
+
+  color: unset;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+@font-face {
+  font-family: 'Futura PT Bold';
+  src: url('../fonts/FuturaPT-Bold.eot');
+  src: url('../fonts/FuturaPT-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/FuturaPT-Bold.woff') format('woff'),
+  url('../fonts/FuturaPT-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Futura PT Light';
+  src: url('../fonts/FuturaPT-Light.eot');
+  src: url('../fonts/FuturaPT-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/FuturaPT-Light.woff') format('woff'),
+  url('../fonts/FuturaPT-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Futura PT ExtraBold';
+  src: url('../fonts/FuturaPT-ExtraBold.eot');
+  src: url('../fonts/FuturaPT-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/FuturaPT-ExtraBold.woff') format('woff'),
+  url('../fonts/FuturaPT-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$color-headers: #A89365;
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  max-width: calc(100vw - 177px);
+  margin: 0 auto;
+}
+
+.carousel {
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: $color-headers;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    align-items: flex-end;
+  }
+
+  &__title {
+    font-family: 'Futura PT ExtraBold';
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 100%;
+  }
+
+  &__link {
+    font-family: 'Futura PT Light';
+
+    &::after {
+      content: '\2192';
+    }
+  }
+
+  &__body {
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  &__cart-container {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 1px solid $color-headers;
+    background-color: $color-headers;
+    color: #ffffff;
+    font-family: "Futura PT Light";
+    font-size: 18px;
+    line-height: 23px;
+    padding: 18.5px 62.5px;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      background-color: #ffffff;
+      color: $color-headers;
+      border-color: #ffffff;
+    }
+    &_white {
+      background-color: #ffffff;
+      color: $color-headers;
+      margin-right: 25.5px;
+
+      &:hover {
+        background-color: $color-headers;
+        color: #ffffff;
+      }
+    }
+  }
+}
+.cart-item {
+  max-width: 23.47%;
+  min-width: 270px;
+  &__img {
+
+  overflow: hidden;
+    img {
+      min-width: 270px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-family: "Futura PT Bold";
+    color: $color-headers;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-family: "Futura PT Light";
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+.arrow {
+  position: absolute;
+  cursor: pointer;
+  top: 236px;
+  content: '';
+  width: 32px;
+  height: 32px;
+  border-top: 2px solid $color-headers;
+  border-right: 2px solid $color-headers;
+
+  &_right {
+    right: -2%;
+    transform: rotate(45deg);
+  }
+
+  &_left {
+    left: -2%;
+    transform: rotate(-135deg);
+  }
+}
+@media (max-width: 1330px) {
+  .container {
+    max-width: calc(100vw - 80px);
+  }
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 1280px) {
+  .arrow {
+    top: 184px;
+    width: 16px;
+    height: 16px;
+  }
+  .carousel__header {
+    &__title {
+      font-size: 32px;
+    }
+    &__link {
+      font-size: 18px;
+    }
+  }
+  .cart-item {
+    max-width: 23.47%;
+    &__title {
+      font-size: 24px;
+      line-height: 24px;
+    }
+    &__text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
