@@ -7,7 +7,6 @@ body, h1, h2, h3, h4, p{
   margin: 0;
 }
 a {
-
   color: unset;
   text-decoration: none;
 
@@ -15,7 +14,6 @@ a {
     text-decoration: underline;
   }
 }
-
 
 @font-face {
   font-family: 'Futura PT Bold';
@@ -49,14 +47,12 @@ $color-headers: #A89365;
 .wrapper {
   width: 100%;
 }
-
 .container {
   max-width: calc(100vw - 177px);
   margin: 0 auto;
 }
-
+//Стили для карусели
 .carousel {
-
   &__header {
     display: flex;
     justify-content: space-between;
@@ -65,40 +61,34 @@ $color-headers: #A89365;
     text-transform: uppercase;
     margin-bottom: 40px;
     align-items: flex-end;
+    padding: 0 20px;
   }
-
   &__title {
     font-family: 'Futura PT ExtraBold';
     font-size: 48px;
     font-weight: 800;
     line-height: 100%;
   }
-
   &__link {
     font-family: 'Futura PT Light';
-
     &::after {
       content: '\2192';
     }
   }
-
   &__body {
     margin-bottom: 40px;
     position: relative;
   }
-
   &__cart-container {
     display: flex;
     overflow: hidden;
-    flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 20px;
   }
-
   &__footer {
     display: flex;
     justify-content: center;
   }
-
   &__btn {
     cursor: pointer;
     text-transform: uppercase;
@@ -110,7 +100,6 @@ $color-headers: #A89365;
     line-height: 23px;
     padding: 18.5px 62.5px;
     transition: all .3s ease-in-out;
-
     &:hover {
       background-color: #ffffff;
       color: $color-headers;
@@ -120,7 +109,6 @@ $color-headers: #A89365;
       background-color: #ffffff;
       color: $color-headers;
       margin-right: 25.5px;
-
       &:hover {
         background-color: $color-headers;
         color: #ffffff;
@@ -128,11 +116,19 @@ $color-headers: #A89365;
     }
   }
 }
+//Стили для элементов карусели
+.cart-item-wrapper {
+  padding: 0 20px;
+}
+.cart-track {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  transition: all .3s ease-in-out;
+}
 .cart-item {
-  max-width: 23.47%;
   min-width: 270px;
   &__img {
-
   overflow: hidden;
     img {
       min-width: 270px;
@@ -141,21 +137,19 @@ $color-headers: #A89365;
       object-fit: contain;
     }
   }
-
   &__title {
     font-family: "Futura PT Bold";
     color: $color-headers;
     font-size: 30px;
     margin-bottom: 20px;
   }
-
   &__text {
     font-family: "Futura PT Light";
     font-size: 20px;
     line-height: 30px;
   }
 }
-
+//Стили для стрелок навигации
 .arrow {
   position: absolute;
   cursor: pointer;
@@ -165,24 +159,76 @@ $color-headers: #A89365;
   height: 32px;
   border-top: 2px solid $color-headers;
   border-right: 2px solid $color-headers;
-
   &_right {
     right: -2%;
     transform: rotate(45deg);
   }
-
   &_left {
     left: -2%;
     transform: rotate(-135deg);
   }
 }
+//Стили для точек навигации
+.navigate {
+  display: flex;
+  justify-content: center;
+  &__circle-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__circle {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &_active {
+      background-color: $color-headers;
+    }
+  }
+}
+//media
 @media (max-width: 1330px) {
   .container {
     max-width: calc(100vw - 80px);
   }
 }
-@media (max-width: 1200px) {
-  
+@media (max-width: 566px) {
+  .carousel__title {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 920px) {
+.cart-item-wrapper {
+  padding: 0 10px;
+}
+  .carousel {
+    &__header {
+      padding: 0 10px;
+    }
+    &__footer {
+      flex-direction: column;
+      padding: 0 10px;
+    }
+    &__btn {
+      text-align: center;
+      &_white {
+        margin: 0 0 20px 0;
+      }
+    }
+  }
+}
+@media (max-width: 1240px) {
+  .container {
+    max-width: calc(100vw - 20px);
+  }
+  .arrow {
+    display: none;
+  }
 }
 @media (max-width: 1280px) {
   .arrow {
@@ -192,6 +238,7 @@ $color-headers: #A89365;
   }
   .carousel__header {
     &__title {
+      padding: 0 10px;
       font-size: 32px;
     }
     &__link {
@@ -199,7 +246,6 @@ $color-headers: #A89365;
     }
   }
   .cart-item {
-    max-width: 23.47%;
     &__title {
       font-size: 24px;
       line-height: 24px;

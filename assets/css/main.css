@@ -55,6 +55,7 @@ a:hover {
   text-transform: uppercase;
   margin-bottom: 40px;
   align-items: flex-end;
+  padding: 0 20px;
 }
 .carousel__title {
   font-family: "Futura PT ExtraBold";
@@ -75,8 +76,8 @@ a:hover {
 .carousel__cart-container {
   display: flex;
   overflow: hidden;
-  flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .carousel__footer {
   display: flex;
@@ -109,8 +110,18 @@ a:hover {
   color: #ffffff;
 }
 
+.cart-item-wrapper {
+  padding: 0 20px;
+}
+
+.cart-track {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+}
+
 .cart-item {
-  max-width: 23.47%;
   min-width: 270px;
 }
 .cart-item__img {
@@ -153,9 +164,65 @@ a:hover {
   transform: rotate(-135deg);
 }
 
+.navigate {
+  display: flex;
+  justify-content: center;
+}
+.navigate__circle-container {
+  display: flex;
+  justify-content: space-between;
+}
+.navigate__circle {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  margin-right: 20px;
+}
+.navigate__circle:last-child {
+  margin-right: 0;
+}
+.navigate__circle_active {
+  background-color: #A89365;
+}
+
 @media (max-width: 1330px) {
   .container {
     max-width: calc(100vw - 80px);
+  }
+}
+@media (max-width: 566px) {
+  .carousel__title {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 920px) {
+  .cart-item-wrapper {
+    padding: 0 10px;
+  }
+
+  .carousel__header {
+    padding: 0 10px;
+  }
+  .carousel__footer {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .carousel__btn {
+    text-align: center;
+  }
+  .carousel__btn_white {
+    margin: 0 0 20px 0;
+  }
+}
+@media (max-width: 1240px) {
+  .container {
+    max-width: calc(100vw - 20px);
+  }
+
+  .arrow {
+    display: none;
   }
 }
 @media (max-width: 1280px) {
@@ -166,15 +233,13 @@ a:hover {
   }
 
   .carousel__header__title {
+    padding: 0 10px;
     font-size: 32px;
   }
   .carousel__header__link {
     font-size: 18px;
   }
 
-  .cart-item {
-    max-width: 23.47%;
-  }
   .cart-item__title {
     font-size: 24px;
     line-height: 24px;
