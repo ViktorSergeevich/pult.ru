@@ -3,7 +3,7 @@
 
     let slidesToScroll = 4;
     let slidesToShow = 4;
-    let itemWidth;
+    // let itemWidth;
 
     const container = document.querySelector('.carousel__cart-container');
     const track = document.querySelector('.cart-track');
@@ -11,7 +11,8 @@
     const btnPrev = document.querySelector('.arrow_left');
     const btnNext = document.querySelector('.arrow_right');
     const navigateBlock = document.querySelector('.navigate__circle-container');
-
+    const itemWidth = container.clientWidth / slidesToShow;
+    const movePosition = slidesToScroll * itemWidth;
 
     if (window.innerWidth < 1240) {
         slidesToShow = 3
@@ -28,20 +29,21 @@
     } else {
         navigateBlock.innerHTML = '';
     }
-    itemWidth = container.clientWidth / slidesToShow;
+
     items.forEach((item, index) => {
         item.style.minWidth = itemWidth + 'px';
         item.style.maxWidth = itemWidth + 'px';
     })
 
     btnNext.addEventListener('click', () => {
-        const movePosition = slidesToScroll * itemWidth;
         position -= movePosition;
         setPosition();
     })
     btnPrev.addEventListener('click', () => {
-        const movePosition = slidesToScroll * itemWidth;
-        position += movePosition;
+        if( position + movePosition <= 0)
+            position += movePosition
+        else
+            position = 0
         setPosition();
     })
      function setPosition() {
