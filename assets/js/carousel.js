@@ -3,7 +3,6 @@
 
     let slidesToScroll = 4;
     let slidesToShow = 4;
-    // let itemWidth;
 
     const container = document.querySelector('.carousel__cart-container');
     const track = document.querySelector('.cart-track');
@@ -11,8 +10,7 @@
     const btnPrev = document.querySelector('.arrow_left');
     const btnNext = document.querySelector('.arrow_right');
     const navigateBlock = document.querySelector('.navigate__circle-container');
-    const itemWidth = container.clientWidth / slidesToShow;
-    const movePosition = slidesToScroll * itemWidth;
+
 
     if (window.innerWidth < 1240) {
         slidesToShow = 3
@@ -29,6 +27,8 @@
     } else {
         navigateBlock.innerHTML = '';
     }
+    const itemWidth = container.clientWidth / slidesToShow
+    const movePosition = slidesToScroll * itemWidth;
 
     items.forEach((item, index) => {
         item.style.minWidth = itemWidth + 'px';
@@ -36,16 +36,18 @@
     })
 
     btnNext.addEventListener('click', () => {
-        position -= movePosition;
+        if (position > -(items.length - slidesToShow) * itemWidth)
+            position -= movePosition;
+
         setPosition();
     })
-    btnPrev.addEventListener('click', () => {
-        if( position + movePosition <= 0)
-            position += movePosition
-        else
-            position = 0
-        setPosition();
-    })
+     btnPrev.addEventListener('click', () => {
+         if( position + movePosition <= 0)
+             position += movePosition
+         else
+             position = 0
+         setPosition();
+     })
      function setPosition() {
          track.style.transform = `translateX(${position}px)`
      }
@@ -54,13 +56,16 @@
          for (let i = 0; i < Math.ceil(items.length / slidesToShow); i++) {
              sp = document.createElement('span');
              sp.classList.add('navigate__circle');
+
              if (i === 0) sp.classList.add('navigate__circle_active');
-             navigateBlock.appendChild(sp)
+                navigateBlock.appendChild(sp)
          }
      }
 }
 window.onload = () => {
     carousel();
+    const track = document.querySelector('.cart-track')
+    // track.addEventListener('')
  }
  window.onresize = () => {
      carousel();
