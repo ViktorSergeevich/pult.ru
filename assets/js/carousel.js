@@ -71,12 +71,7 @@
              if (i === 0) sp.classList.add('navigate__circle_active');
                 navigateBlock.appendChild(sp)
          }
-         // if(circles)
-         //     circles.forEach((el) => {
-         //         if (!el.classList.contains('navigate__circle_active')) {
-         //             document.querySelector('[data-id-page=0]').classList.add('navigate__circle_active')
-         //         }
-         //     })
+
      }
 }
 window.onload = () => {
