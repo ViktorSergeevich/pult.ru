@@ -56,8 +56,18 @@
          for (let i = 0; i < Math.ceil(items.length / slidesToShow); i++) {
              sp = document.createElement('span');
              sp.classList.add('navigate__circle');
-
-             if (i === 0) sp.classList.add('navigate__circle_active');
+             sp.dataset.idPage = i
+             sp.addEventListener('click', (e) => {
+                 el = e.currentTarget
+                 circles = document.querySelectorAll('[data-id-page]')
+                 circles.forEach((el) => {
+                     el.classList.remove('navigate__circle_active')
+                 })
+                 position = -itemWidth * el.dataset.idPage
+                 el.classList.add('navigate__circle_active');
+                 setPosition()
+             })
+             // if (i === 0) sp.classList.add('navigate__circle_active');
                 navigateBlock.appendChild(sp)
          }
      }
