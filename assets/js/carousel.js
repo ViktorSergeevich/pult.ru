@@ -53,12 +53,13 @@
      }
      function activeNavigate () {
          navigateBlock.innerHTML = ''
+         let circles
          for (let i = 0; i < Math.ceil(items.length / slidesToShow); i++) {
-             sp = document.createElement('span');
+             let sp = document.createElement('span');
              sp.classList.add('navigate__circle');
              sp.dataset.idPage = i
              sp.addEventListener('click', (e) => {
-                 el = e.currentTarget
+                 let el = e.currentTarget
                  circles = document.querySelectorAll('[data-id-page]')
                  circles.forEach((el) => {
                      el.classList.remove('navigate__circle_active')
@@ -67,9 +68,15 @@
                  el.classList.add('navigate__circle_active');
                  setPosition()
              })
-             // if (i === 0) sp.classList.add('navigate__circle_active');
+             if (i === 0) sp.classList.add('navigate__circle_active');
                 navigateBlock.appendChild(sp)
          }
+         // if(circles)
+         //     circles.forEach((el) => {
+         //         if (!el.classList.contains('navigate__circle_active')) {
+         //             document.querySelector('[data-id-page=0]').classList.add('navigate__circle_active')
+         //         }
+         //     })
      }
 }
 window.onload = () => {
