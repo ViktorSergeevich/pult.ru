@@ -64,7 +64,7 @@
                  circles.forEach((el) => {
                      el.classList.remove('navigate__circle_active')
                  })
-                 position = -itemWidth * el.dataset.idPage
+                 position = -itemWidth * el.dataset.idPage * slidesToShow
                  el.classList.add('navigate__circle_active');
                  setPosition()
              })
