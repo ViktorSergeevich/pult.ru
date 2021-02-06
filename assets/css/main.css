@@ -195,6 +195,16 @@ a:hover {
 @media (max-width: 566px) {
   .carousel__title {
     margin-bottom: 10px;
+    padding: 0;
+  }
+  .carousel__header {
+    flex-direction: column;
+    align-items: baseline;
+  }
+}
+@media (max-width: 320px) {
+  .carousel__title {
+    font-size: 24px;
   }
 }
 @media (max-width: 920px) {
@@ -232,11 +242,10 @@ a:hover {
     height: 16px;
   }
 
-  .carousel__header__title {
-    padding: 0 10px;
+  .carousel__title {
     font-size: 32px;
   }
-  .carousel__header__link {
+  .carousel__link {
     font-size: 18px;
   }
 
